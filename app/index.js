@@ -1,4 +1,5 @@
 import { join } from 'lodash/array';
+import { output } from './utils';
 // import { moment } from 'moment';
 
 let component = () => {
@@ -11,5 +12,9 @@ let component = () => {
 };
 
 document.body.appendChild(component());
+
+output('First');
+
+// export default component;
 
 // console.log(moment().format());
