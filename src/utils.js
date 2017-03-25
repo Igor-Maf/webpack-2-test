@@ -6,3 +6,4 @@ let output = (msg = 'Test') => {
 };
 
 export { output };
+// export default output;
