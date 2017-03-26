@@ -23,7 +23,7 @@ const config = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						plugins: ['lodash'],
+						plugins: ['transform-runtime', 'lodash'],
 						presets: [['es2015', {
 							targets: {
 								node: 4
@@ -52,10 +52,17 @@ const config = {
   		// new webpack.optimize.CommonsChunkPlugin({
 	    //     name: 'vendor'
 	    // }),
+	 	// new webpack.LoaderOptionsPlugin({ // TODO: включить, когда появятся другие loader-ы, кроме babel
+		//     minimize: true,
+		//     debug: false
+		// }),
         new webpack.optimize.UglifyJsPlugin({
-        	sourceMap: true
+        	sourceMap: NODE_ENV === 'development'
         }),
-        new HtmlWebpackPlugin({template: './src/index.html'})
+        new HtmlWebpackPlugin({
+        	title: 'webpack 2 demo',
+        	template: './src/index.ejs'
+        })
   	]
 };
 
